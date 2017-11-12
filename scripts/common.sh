@@ -57,7 +57,7 @@ function get_realpath() {
 function install_dependencies_darwin() {
   if [ -x '/opt/local/bin/port' ]; then
     echo "Getting dependencies with MacPorts."
-    sudo port install git sqlite3 opencv +python27 py27-virtualenv
+    sudo port install git sqlite3 py27-virtualenv
   elif [ -x '/usr/local/bin/brew' ]; then
     echo "Getting dependencies with Brew."
     echo "Todo"
@@ -69,11 +69,11 @@ function install_dependencies_darwin() {
 function install_dependencies_linux() {
   if [ -x '/usr/bin/apt' ]; then
     echo "Getting dependencies with Apt."
-    sudo apt-get install git libopencv-dev python-opencv \
+    sudo apt-get install git \
       sqlite3 python-setuptools libpython2.7-dev python-pip virtualenv
   elif [ -x '/usr/bin/yum' ]; then
     echo "Getting dependencies with Yum."
-    sudo yum install git libopencv-dev python-opencv sqlite3 \
+    sudo yum install git sqlite3 \
       python-setuptools libpython2.7-dev python-pip virtualenv
   else
     echo "Could not find Apt or Yum in standard locations, aborting."
