@@ -113,28 +113,4 @@ def analyze_NIR_intensity(img, rgbimg, mask, bins, device, histplot=False, debug
             plot_image(masked1)
             plot_image(cplant_back)
 
-
-    if histplot is True:
-        import matplotlib
-        matplotlib.use('Agg')
-        from matplotlib import pyplot as plt
-
-        # plot hist percent
-        plt.plot(hist_percent, color='green', label='Signal Intensity')
-        plt.xlim([0, (bins - 1)])
-        plt.xlabel(('Grayscale pixel intensity (0-' + str(bins) + ")"))
-        plt.ylabel('Proportion of pixels (%)')
-
-        if filename:
-            fig_name_hist = (str(filename[0:-4]) + '_nir_hist.svg')
-            plt.savefig(fig_name_hist)
-            analysis_img.append(['IMAGE', 'hist', fig_name_hist])
-        if debug == "print":
-            plt.savefig((str(device) + "_nir_histogram.jpg"))
-        if debug == "plot":
-            plt.figure()
-        plt.clf()
-
-
-
     return device, hist_header, hist_data, analysis_img

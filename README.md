@@ -16,8 +16,7 @@ Follow us on twitter [@plantcv](https://twitter.com/plantcv).
 ## Introduction to PlantCV
 
 PlantCV [1] is an imaging processing and trait extraction package designed for plant biology research
-that is built upon open-source software platforms [OpenCV](http://opencv.org) [2], [NumPy](http://www.numpy.org) [3], 
-and [MatPlotLib](http://matplotlib.org) [4].
+that is built upon open-source software platforms [OpenCV](http://opencv.org) [2], [NumPy](http://www.numpy.org) [3].
 
 If you use PlantCV please cite us [1].
 
@@ -47,9 +46,6 @@ http://www.drdobbs.com/open-source/the-opencv-library/184404319
 
 3. Oliphant TE (2007) Python for Scientific Computing. Computing in Science & Engineering 9: 10-20.
 http://doi.org/10.1109/MCSE.2007.58
-
-4. Hunter JD (2007) Matplotlib: A 2D graphics environment. Computing in Science & Engineering 9: 90-95.
-http://doi.org/10.1109/MCSE.2007.55
 
 ___
 

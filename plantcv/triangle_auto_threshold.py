@@ -33,9 +33,8 @@ def _detect_peaks(x, mph=None, mpd=1, threshold=0, edge='rising', kpsh=False, va
         keep peaks with same height even if they are closer than `mpd`.
     valley : bool, optional (default = False)
         if True (1), detect valleys (local minima) instead of peaks.
-    show : bool, optional (default = False)
-        if True (1), plot data in matplotlib figure.
-    ax : a matplotlib.axes.Axes instance, optional (default = None).
+    show : bool, optional (default = False).
+    ax : None.
 
     Returns
     -------
@@ -264,34 +263,5 @@ def triangle_auto_threshold(device, img, maxvalue, object_type, xstep=1, debug=N
 
     # threshold the image based on the object type using triangle binarization
     t_val, t_img = cv2.threshold(img, autothreshval, maxvalue, obj)
-
-    if debug is not None:
-        import matplotlib
-        matplotlib.use('Agg')
-        from matplotlib import pyplot as plt
-
-    if debug == 'print':
-        name = str(device) + '_triangle_thresh_img_' + str(t_val) + str(extension)
-        print_image(t_img, name)
-        plt.clf()
-
-        plt.plot(hist)
-        plt.title('Threshold value = {t}'.format(t=autothreshval))
-        plt.axis([0, 256, 0, max(hist)])
-        plt.grid('on')
-        fig_name_hist = str(device) + '_triangle_thresh_hist_' + str(t_val) + str(extension)
-        # write the figure to current directory
-        plt.savefig(fig_name_hist)
-        # close pyplot plotting window
-        plt.clf()
-
-    elif debug == 'plot':
-        print('Threshold value = {t}'.format(t=autothreshval))
-        plot_image(t_img, cmap="gray")
-
-        plt.plot(hist)
-        plt.axis([0, 256, 0, max(hist)])
-        plt.grid('on')
-        plt.show()
 
     return device, t_img

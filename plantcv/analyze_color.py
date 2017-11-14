@@ -79,7 +79,7 @@ def _pseudocolored_image(device, histogram, bins, img, mask, background, channel
                 analysis_images.append(['IMAGE', 'pseudo', fig_name_pseudo])
     else:
         path = "."
-        
+
     if debug is not None:
         if debug == 'print':
             for key in output_imgs:
@@ -245,26 +245,5 @@ def analyze_color(img, imgname, mask, bins, device, debug=None, hist_plot_type=N
     if pseudo_channel is not None:
         analysis_images = _pseudocolored_image(device, norm_channels[pseudo_channel], bins, img, mask, pseudo_bkg,
                                                pseudo_channel, filename, resolution, analysis_images, debug)
-
-    if hist_plot_type is not None and filename:
-        import matplotlib
-        matplotlib.use('Agg')
-        from matplotlib import pyplot as plt
-
-        # Create Histogram Plot
-        for channel in hist_types[hist_plot_type]:
-            plt.plot(histograms[channel]["hist"], color=histograms[channel]["graph_color"],
-                     label=histograms[channel]["label"])
-            plt.xlim([0, bins - 1])
-            plt.legend()
-
-        # Print plot
-        fig_name = (str(filename[0:-4]) + '_' + str(hist_plot_type) + '_hist.svg')
-        plt.savefig(fig_name)
-        analysis_images.append(['IMAGE', 'hist', fig_name])
-        if debug == 'print':
-            fig_name = (str(device) + '_' + str(hist_plot_type) + '_hist.svg')
-            plt.savefig(fig_name)
-        plt.clf()
 
     return device, hist_header, hist_data, analysis_images

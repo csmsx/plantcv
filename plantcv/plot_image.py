@@ -9,11 +9,4 @@ def plot_image(img, cmap=None):
     :param img: numpy array
     :return:
     """
-    from matplotlib import pyplot as plt
-    
-    if cmap == None:
-        plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-        plt.show()
-    else:
-        plt.imshow(img, cmap=cmap)
-        plt.show()
+    pass
