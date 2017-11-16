@@ -1,5 +1,4 @@
 numpy>=1.11
-pandas
 python-dateutil
 scipy
 scikit-image
